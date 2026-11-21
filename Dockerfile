@@ -1,11 +1,14 @@
 FROM php:8.3-fpm
 
-# Install system dependencies
+# Environment
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# Install system dependencies & PHP extensions (including libicu-dev for intl required by Filament)
 RUN apt-get update && apt-get install -y \
     git curl zip unzip libpng-dev libjpeg-dev libfreetype6-dev \
-    libonig-dev libxml2-dev libzip-dev supervisor nginx \
+    libonig-dev libxml2-dev libzip-dev libicu-dev supervisor nginx \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip intl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js for Vite build
@@ -23,8 +26,8 @@ COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interaction
 
 # Copy package files and install + build frontend
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json package-lock.json .npmrc ./
+RUN npm ci --ignore-scripts=false
 COPY vite.config.js ./
 COPY resources ./resources
 RUN npm run build
@@ -50,6 +53,6 @@ EXPOSE ${PORT:-8080}
 
 # Start script
 COPY docker/start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start.sh
+RUN sed -i 's/\r$//' /usr/local/bin/start.sh && chmod +x /usr/local/bin/start.sh
 
 CMD ["/usr/local/bin/start.sh"]
