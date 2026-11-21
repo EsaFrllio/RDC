@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Repositories\Contracts;
+
+interface TestimonialRepositoryInterface
+{
+    public function all();
+    public function getActive();
+    public function find($id);
+    public function create(array $data);
+    public function update($id, array $data);
+    public function delete($id);
+}

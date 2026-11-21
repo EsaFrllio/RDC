@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Montserrat:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+:root {
+    --rdc-gold: #F59E0B;
+    --rdc-gold-dark: #D97706;
+    --rdc-gold-light: #FDE68A;
+    --rdc-dark: #090D16;
+    --rdc-dark-surface: #0F172A;
+    --rdc-dark-card: #141C2E;
+    --rdc-bg-light: #F8FAFC;
+    --rdc-card-light: #FFFFFF;
+    --rdc-text-dark: #0F172A;
+    --rdc-text-muted: #64748B;
+}
+
+body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+/* ================================================================= */
+/* TYPOGRAPHY CLASSES (NORDIC HAVEN EDITORIAL STYLE)                 */
+/* ================================================================= */
+.font-serif-nordic {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+}
+
+.font-script {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-style: italic !important;
+}
+
+.font-sans-nordic {
+    font-family: 'Instrument Sans', system-ui, sans-serif !important;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* ================================================================= */
+/* RDC BEAR OBSIDIAN DARK GRADIENTS                                  */
+/* ================================================================= */
+.hero-gradient-overlay {
+    background: linear-gradient(
+        90deg,
+        #090D16 0%,
+        #090D16 40%,
+        rgba(9, 13, 22, 0.90) 48%,
+        rgba(9, 13, 22, 0.55) 62%,
+        rgba(9, 13, 22, 0.18) 78%,
+        rgba(9, 13, 22, 0.00) 95%
+    ) !important;
+}
+
+@media (max-width: 768px) {
+    .hero-gradient-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(9, 13, 22, 0.97) 0%,
+            rgba(9, 13, 22, 0.90) 65%,
+            rgba(9, 13, 22, 0.50) 88%,
+            rgba(9, 13, 22, 0.10) 100%
+        ) !important;
+    }
+}
+
+.page-header-gradient {
+    background: linear-gradient(135deg, #090D16 0%, #0F172A 55%, #162036 100%) !important;
+}
+
+.footer-gradient {
+    background: linear-gradient(180deg, #090D16 0%, #0C1220 65%, #070A10 100%) !important;
+}
+
+/* ================================================================= */
+/* RDC BEAR BUTTONS (NORDIC HAVEN PILL SHAPE)                        */
+/* ================================================================= */
+.btn-nordic-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.875rem 2rem !important;
+    border-radius: 9999px !important;
+    background-color: #F59E0B !important;
+    color: #090D16 !important;
+    font-weight: 700 !important;
+    font-size: 0.9375rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3) !important;
+    text-decoration: none !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+.btn-nordic-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45) !important;
+    background-color: #FBBF24 !important;
+    color: #090D16 !important;
+}
+
+.btn-nordic-secondary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.875rem 2rem !important;
+    border-radius: 9999px !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(8px) !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    font-weight: 700 !important;
+    font-size: 0.9375rem !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+.btn-nordic-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-2px) !important;
+}
+
+.btn-nordic-dark {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.875rem 2rem !important;
+    border-radius: 9999px !important;
+    background-color: #0F172A !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.9375rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2) !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    border: none !important;
+}
+.btn-nordic-dark:hover {
+    background-color: #1E293B !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.3) !important;
+    color: #F59E0B !important;
+}
+
+/* ================================================================= */
+/* CARDS & CONTAINERS                                                */
+/* ================================================================= */
+.nordic-card {
+    background-color: #ffffff !important;
+    border-radius: 1.5rem !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+.nordic-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.09), 0 4px 12px rgba(245, 158, 11, 0.08) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+/* ================================================================= */
+/* NAVBAR LINK UNDERLINE HOVER ANIMATION                             */
+/* ================================================================= */
+.nordic-nav-link {
+    position: relative;
+    color: #E2E8F0 !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+.nordic-nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 2.5px;
+    background: #F59E0B;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+.nordic-nav-link:hover::after,
+.nordic-nav-link.active::after {
+    width: 100% !important;
+}
+.nordic-nav-link:hover {
+    color: #F59E0B !important;
+    transform: translateY(-1px);
+}
+.nordic-nav-link.active {
+    color: #F59E0B !important;
+}
+
+/* Webkit Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #090D16;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #F59E0B;
+}
+
+/* WhatsApp floating pulse */
+@keyframes wa-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70%  { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.wa-pulse {
+    animation: wa-pulse 2.2s infinite;
+}
+
+/* Prevent horizontal overflow globally */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+/* ================================================================= */
+/* RDC BEAR / ABOUT US & OUR STORY EDITORIAL SECTION STYLES          */
+/* ================================================================= */
+.about-wrapper {
+    background-color: #F8FAFC;
+}
+
+.about-badge {
+    display: inline-block;
+    background-color: #F59E0B;
+    color: #090D16;
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 10px rgba(245, 158, 11, 0.25);
+}
+
+.about-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 52px;
+    line-height: 1.15;
+    color: #0F172A;
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .about-title {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+}
+
+.about-brand {
+    color: #D97706;
+    font-weight: 700;
+}
+
+.about-desc {
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+    font-size: 16px;
+    color: #475569;
+    line-height: 1.75;
+}
+
+.stat-number {
+    font-size: 42px;
+    font-weight: 700;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: #D97706;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 13.5px;
+    color: #64748B;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+/* ================================================================= */
+/* CONTACT FORM INPUT STYLES                                          */
+/* ================================================================= */
+.contact-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 12px;
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+    font-size: 14px;
+    color: #334155;
+    background-color: #FAFAFA;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.contact-input::placeholder {
+    color: #94A3B8;
+}
+
+.contact-input:focus {
+    border-color: #F59E0B;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+
+.contact-input:hover:not(:focus) {
+    border-color: #CBD5E1;
+}
+
+/* ================================================================= */
+/* HERO SLIDESHOW DOTS                                               */
+/* ================================================================= */
+.hero-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 9999px !important;
+    background-color: rgba(255, 255, 255, 0.45) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    border: none !important;
+    padding: 0 !important;
+    display: inline-block !important;
+}
+.hero-dot:hover {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+}
+.hero-dot.is-active {
+    width: 13px !important;
+    height: 13px !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7) !important;
+    transform: scale(1.15) !important;
+}
+
