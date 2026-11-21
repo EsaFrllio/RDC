@@ -25,17 +25,13 @@ WORKDIR /var/www/html
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interaction
 
-# Copy package files and install + build frontend
-COPY package.json package-lock.json ./
-RUN npm install --ignore-scripts=false
-COPY vite.config.js ./
-COPY resources ./resources
-RUN npm run build
-
 # Copy the rest of the application
 COPY . .
 
-# Re-run composer scripts (post-autoload-dump, etc.)
+# Install and build frontend assets with Vite
+RUN npm install --ignore-scripts=false && npm run build
+
+# Re-run composer dump-autoload
 RUN composer dump-autoload --optimize
 
 # Set permissions
