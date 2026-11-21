@@ -71,7 +71,8 @@ class ManageContact extends Page implements HasForms
                     ->label('Business Opening Hours')
                     ->required(),
                 TextInput::make('google_maps_link')
-                    ->label('Google Maps Location Link / Embed URL')
+                    ->label('Google Maps Embed URL / Kode Iframe')
+                    ->helperText('Buka Google Maps -> Bagikan (Share) -> Sematkan peta (Embed map) -> Salin HTML atau paste URL src-nya di sini.')
                     ->required(),
                 TextInput::make('google_rating')
                     ->label('Google Rating (e.g. 4.9)')
